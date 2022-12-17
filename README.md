@@ -1,14 +1,14 @@
 # xAP3Controller
-A Docker container that automates Xiaomi Air Purifier 3C operation.
-<b>
+<b>A Docker container that automates Xiaomi Air Purifier 3C operation.</b>
+<br><br>
 Requirements:
 `docker, docker-compose`
-
+<br>
 In case using it on Raspberry Pi Raspbian need to be 64-bit version.
-``
+<br><br>
+<b>
 Usage:
-
-
+</b>
 Download script:
 
 `git clone https://github.com/ravlaska/xAP3Controller.git`

@@ -7,8 +7,7 @@ Download script:
 
 `cd xAP3Controller`
 
-Put IP and TOKEN values between apostrophes in main.py file:
-(you can edit rest of user's variables, but you don't have to)
+Put IP and TOKEN values between apostrophes in main.py file (you can edit rest of user's variables, but you don't have to):
 
 `nano main.py`
 

@@ -50,44 +50,49 @@ while True:
 		# Turning off
 		if (aq < swk[0]) & (io == 'on'):
 			ap.off()
+			io = ap.status().power
 
 		# Turning on
 		if (aq > swk[1]) & (io == 'off'):
 			ap.on()
+			io = ap.status().power
 
-		# Day rules
-		if (now < hour_DN[1]) & (now > hour_DN[0]):
+		# Check if AP3C is off
+		if io == 'on':
 
-			# Brightening led
-			if (led == led_DN[1]):
-				ap.set_led_brightness_level(led_DN[0])		
+			# Day rules
+			if (now < hour_DN[1]) & (now > hour_DN[0]):
 
-			# Table of RPMs
-			if aq < limits[0]:  					 # 10
-				ap.set_favorite_rpm(lowL)
-			if (aq > limits[1]) & (aq < limits[2]):  # 15 < 25
-				ap.set_favorite_rpm(mediumH)
-			if (aq > limits[3]) & (aq < limits[4]):  # 30 < 45
-				ap.set_favorite_rpm(highL)
-			if aq > limits[5]: 						 # 50
-				ap.set_favorite_rpm(highH)
+				# Brightening led
+				if (led == led_DN[1]):
+					ap.set_led_brightness_level(led_DN[0])		
 
-		# Night rules
-		else:
+				# Table of RPMs
+				if aq < limits[0]:  					 # 10
+					ap.set_favorite_rpm(lowL)
+				if (aq > limits[1]) & (aq < limits[2]):  # 15 < 25
+					ap.set_favorite_rpm(mediumH)
+				if (aq > limits[3]) & (aq < limits[4]):  # 30 < 45
+					ap.set_favorite_rpm(highL)
+				if aq > limits[5]: 						 # 50
+					ap.set_favorite_rpm(highH)
 
-			# Dimming led
-			if led == led_DN[0]:
-				ap.set_led_brightness_level(led_DN[1])
+			# Night rules
+			else:
 
-			# Table of RPMs
-			if aq < limits[0]:  					 # 10
-				ap.set_favorite_rpm(lowL)
-			if (aq > limits[1]) & (aq < limits[2]):  # 15 < 25
-				ap.set_favorite_rpm(lowH)
-			if (aq > limits[3]) & (aq < limits[4]):  # 30 < 45
-				ap.set_favorite_rpm(mediumL)
-			if aq > limits[5]:  					 # 50
-				ap.set_favorite_rpm(mediumH)
+				# Dimming led
+				if led == led_DN[0]:
+					ap.set_led_brightness_level(led_DN[1])
+
+				# Table of RPMs
+				if aq < limits[0]:  					 # 10
+					ap.set_favorite_rpm(lowL)
+				if (aq > limits[1]) & (aq < limits[2]):  # 15 < 25
+					ap.set_favorite_rpm(lowH)
+				if (aq > limits[3]) & (aq < limits[4]):  # 30 < 45
+					ap.set_favorite_rpm(mediumL)
+				if aq > limits[5]:  					 # 50
+					ap.set_favorite_rpm(mediumH)
 			
 	# Refreshing rate
 	os.system('sleep ' + refresh)

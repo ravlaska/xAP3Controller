@@ -1,0 +1,12 @@
+version: "3"
+services:
+  ap3c:
+    container_name: ap3c
+    image: xap3controller
+    dns:
+      - 1.1.1.1
+    environment:
+      - TZ='Europe/Warsaw'
+    ports:
+      - 85:80
+    restart: unless-stopped

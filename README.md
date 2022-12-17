@@ -1,5 +1,5 @@
 # xAP3Controller
-A Docker container that automates Xiaomi Air Purifier 3C operation
+A Docker container that automates Xiaomi Air Purifier 3C operation.
 
 Download script:
 
